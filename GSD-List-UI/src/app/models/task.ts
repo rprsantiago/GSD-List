@@ -8,5 +8,5 @@ export class task{
 
     //relate statusId to codetable
     statusId!: number;
-    status!: codetable;
+    //status!: codetable;
 }
