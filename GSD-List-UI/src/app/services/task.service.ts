@@ -1,21 +1,22 @@
 import { Injectable } from '@angular/core';
-import { task } from '../models/task';
+import { Task } from '../models/task';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
 
-  constructor() { }
+  private url = "task";
 
-  public getTasks(): task[]{
-    let taskItem = new task();
+  constructor(
+    //inject http client to make http requests to the api
+    private http: HttpClient
+  ) { }
 
-    taskItem.id = 1;
-    taskItem.taskName = "Task 1";
-    taskItem.taskDescription = "Task 1 Description";
-    taskItem.statusId = 1;
-
-    return [taskItem];
+  public getTasks(): Observable<Task[]> {
+    return this.http.get<Task[]>(`${environment.apiUrl}/${this.url}`);
   }
 }

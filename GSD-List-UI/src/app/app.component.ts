@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { task } from './models/task';
+import { Task } from './models/task';
 import { TaskService } from './services/task.service';
 
 @Component({
@@ -10,15 +10,15 @@ import { TaskService } from './services/task.service';
 export class AppComponent {
   title = 'GSD-List.UI';
 
-  tasks: task[] = [];
+  tasks: Task[] = [];
 
-  constructor(private taskService: TaskService) {
-    this.tasks = taskService.getTasks();
-  }
+  constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
-    this.tasks = this.taskService.getTasks();
-    console.log(this.tasks);
+    //get tasks from the api
+    this.taskService
+      .getTasks()
+      .subscribe((result: Task[]) => (this.tasks = result));
   }
-  
+
 }
