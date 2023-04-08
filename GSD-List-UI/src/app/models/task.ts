@@ -1,6 +1,6 @@
 import { codetable } from "./codetable";
 
-export class task{
+export class Task{
     id?: number;
     taskName!: string;
     taskDescription!: string;
