@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Z+MgwDhxl2tVNacApQPJM1YP01qH/qDXr6W6fGHG2ZoR0zcLcOPnlx1Yb8Eybv5J0s7kUzc/5dRR9FTHb1e44Q==",
+  "dgSpecHash": "q1soxFwBvwjJjC1FVElgVPd+aM3S1dOb5OMuSZVmNFKZKrgvA7PUrh1sFOnkgiM0hT8LDrNMdtKauor9ToWUjw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rpsan\\Desktop\\Sandbox\\GSD\\GSD-List.API\\GSD-List\\GSD-List\\GSD-List.csproj",
+  "projectFilePath": "C:\\Users\\rpsan\\Desktop\\Sandbox\\GSD-List\\GSD-List-API\\GSD-List\\GSD-List.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rpsan\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.4\\microsoft.aspnetcore.openapi.7.0.4.nupkg.sha512",
     "C:\\Users\\rpsan\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

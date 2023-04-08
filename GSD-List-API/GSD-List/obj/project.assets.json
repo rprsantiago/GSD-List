@@ -466,11 +466,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rpsan\\Desktop\\Sandbox\\GSD\\GSD-List.API\\GSD-List\\GSD-List\\GSD-List.csproj",
+      "projectUniqueName": "C:\\Users\\rpsan\\Desktop\\Sandbox\\GSD-List\\GSD-List-API\\GSD-List\\GSD-List.csproj",
       "projectName": "GSD-List",
-      "projectPath": "C:\\Users\\rpsan\\Desktop\\Sandbox\\GSD\\GSD-List.API\\GSD-List\\GSD-List\\GSD-List.csproj",
+      "projectPath": "C:\\Users\\rpsan\\Desktop\\Sandbox\\GSD-List\\GSD-List-API\\GSD-List\\GSD-List.csproj",
       "packagesPath": "C:\\Users\\rpsan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rpsan\\Desktop\\Sandbox\\GSD\\GSD-List.API\\GSD-List\\GSD-List\\obj\\",
+      "outputPath": "C:\\Users\\rpsan\\Desktop\\Sandbox\\GSD-List\\GSD-List-API\\GSD-List\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
