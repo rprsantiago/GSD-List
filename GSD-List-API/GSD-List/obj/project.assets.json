@@ -3866,23 +3866,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rpsan\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\RP\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rpsan\\Desktop\\Sandbox\\GSD-List\\GSD-List-API\\GSD-List\\GSD-List.csproj",
+      "projectUniqueName": "C:\\Users\\RP\\Desktop\\Sandbox\\GSD-List\\GSD-List-API\\GSD-List\\GSD-List.csproj",
       "projectName": "GSD-List",
-      "projectPath": "C:\\Users\\rpsan\\Desktop\\Sandbox\\GSD-List\\GSD-List-API\\GSD-List\\GSD-List.csproj",
-      "packagesPath": "C:\\Users\\rpsan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rpsan\\Desktop\\Sandbox\\GSD-List\\GSD-List-API\\GSD-List\\obj\\",
+      "projectPath": "C:\\Users\\RP\\Desktop\\Sandbox\\GSD-List\\GSD-List-API\\GSD-List\\GSD-List.csproj",
+      "packagesPath": "C:\\Users\\RP\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\RP\\Desktop\\Sandbox\\GSD-List\\GSD-List-API\\GSD-List\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\rpsan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\RP\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3950,7 +3946,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
