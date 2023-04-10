@@ -1,4 +1,4 @@
-﻿namespace GSD_List
+﻿namespace GSD_List.Models
 {
     public class Status
     {
