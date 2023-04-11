@@ -12,6 +12,8 @@ export class AppComponent {
 
   tasks: Task[] = [];
 
+  displayedColumns: string[] = ['taskName', 'taskDescription'];
+
   constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
@@ -19,6 +21,8 @@ export class AppComponent {
     this.taskService
       .getTasks()
       .subscribe((result: Task[]) => (this.tasks = result));
+
+      
   }
 
 }
