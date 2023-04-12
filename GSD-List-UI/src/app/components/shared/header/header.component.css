@@ -3,7 +3,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: #f5f5f5;
+    background-color: #49c5b6;
+    height: 40px;
   }
   
   .logo {
