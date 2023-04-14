@@ -1,11 +1,14 @@
 <app-header></app-header>
 
 <div class="container">
-    <div class="sidebar" style="background: red;">
-        <app-sidebar></app-sidebar>
+    <div class="sidebar">
+        <!-- <app-sidebar></app-sidebar> -->
     </div>
     <div class="content">
-        <div fxLayout="row" fxLayoutAlign="end center" ><button mat-raised-button color="primary">Add Task</button></div>
+        <div fxLayout="row" fxLayoutAlign="space-between center" >
+            <span class="material-icons md-dark">face</span>
+            <button mat-raised-button color="primary" (click)="openDialog()">Add Task</button>
+        </div>
         <br>
         <!-- app.component.html -->
         <router-outlet></router-outlet>

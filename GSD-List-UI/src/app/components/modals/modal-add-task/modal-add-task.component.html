@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>New Task</h2>
+<form [formGroup]="taskForm">
+    <mat-dialog-content>
+      <mat-form-field>
+        <input matInput formControlName="taskName" placeholder="Task Name">
+        <mat-error *ngIf="taskForm.controls.taskName.errors?.required">
+          Task name is required.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput formControlName="taskDescription" placeholder="Task Description"></textarea>
+        <mat-error *ngIf="taskForm.controls.taskDescription.errors?.required">
+          Task description is required.
+        </mat-error>
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <!-- <button mat-button (click)="onNoClick()">Cancel</button> -->
+      <button mat-button [disabled]="taskForm.invalid" (click)="onSaveClick()">Save</button>
+    </mat-dialog-actions>
+  </form>
