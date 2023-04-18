@@ -1,21 +1,21 @@
-<h2 mat-dialog-title>New Task</h2>
-<form [formGroup]="taskForm">
-    <mat-dialog-content>
-      <mat-form-field>
-        <input matInput formControlName="taskName" placeholder="Task Name">
-        <mat-error *ngIf="taskForm.controls.taskName.errors?.required">
-          Task name is required.
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <textarea matInput formControlName="taskDescription" placeholder="Task Description"></textarea>
-        <mat-error *ngIf="taskForm.controls.taskDescription.errors?.required">
-          Task description is required.
-        </mat-error>
-      </mat-form-field>
-    </mat-dialog-content>
-    <mat-dialog-actions>
-      <!-- <button mat-button (click)="onNoClick()">Cancel</button> -->
-      <button mat-button [disabled]="taskForm.invalid" (click)="onSaveClick()">Save</button>
-    </mat-dialog-actions>
-  </form>
+<h2 mat-dialog-title>Add Task</h2>
+<mat-dialog-content>
+    <form [formGroup]="taskForm">
+        <div fxLayout="row">
+            <mat-form-field fxFlex="100" fxFlex.md="100" fxFlex.sm="100" fxFlex.xs="100">
+                <mat-label>Task Name</mat-label>
+                <input matInput placeholder="Task Name" maxlength="50" formControlName="taskName" required>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row">
+            <mat-form-field fxFlex="100" fxFlex.md="100" fxFlex.sm="100" fxFlex.xs="100">
+                <mat-label>Task Description</mat-label>
+                <input matInput placeholder="Task Description" maxlength="250" formControlName="taskDescription" required>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+</mat-dialog-actions>

@@ -4,6 +4,7 @@ import { TaskService } from './services/task.service';
 
 import { MatDialog } from '@angular/material/dialog';
 import { ModalAddTaskComponent } from './components/modals/modal-add-task/modal-add-task.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class AppComponent {
   displayedColumns: string[] = ['taskName', 'taskDescription'];
 
   constructor(private taskService: TaskService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     //get tasks from the api
@@ -33,11 +35,18 @@ export class AppComponent {
       width: '50%',
       height: '50%'
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+
+      if (result) {
+        this._snackBar.open('Task added successfully', 'Close', {
+          duration: 1000
+        });
+
+        this.ngOnInit();
+      }
     });
   }
-  
+
 
 }

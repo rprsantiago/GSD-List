@@ -19,4 +19,8 @@ export class TaskService {
   public getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(`${environment.apiUrl}/${this.url}`);
   }
+
+  public saveTask(task: Task): Observable<Task> {
+    return this.http.post<Task>(`${environment.apiUrl}/${this.url}`, task);
+  }
 }
