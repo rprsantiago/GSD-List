@@ -23,6 +23,7 @@ import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { SidebarComponent } from './components/shared/sidebar/sidebar.component';
 import { ModalAddTaskComponent } from './components/modals/modal-add-task/modal-add-task.component';
+import { ModalConfirmationComponent } from './components/modals/confirmation-modal/modal-confirmation/modal-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ModalAddTaskComponent } from './components/modals/modal-add-task/modal-
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    ModalAddTaskComponent
+    ModalAddTaskComponent,
+    ModalConfirmationComponent
   ],
   imports: [
     BrowserModule,

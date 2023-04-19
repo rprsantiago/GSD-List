@@ -5,6 +5,7 @@ import { TaskService } from './services/task.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalAddTaskComponent } from './components/modals/modal-add-task/modal-add-task.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ModalConfirmationComponent } from './components/modals/confirmation-modal/modal-confirmation/modal-confirmation.component';
 
 
 @Component({
@@ -66,12 +67,20 @@ export class AppComponent {
   }
 
   deleteTask(task: any) {
-    this.taskService.deleteTask(task.id).subscribe(() => {
-      this._snackBar.open('Task deleted successfully', 'Close', {
-        duration: 1000
-      });
 
-      this.ngOnInit();
+    const dialogRef = this.dialog.open(ModalConfirmationComponent, {
+      width: '50%',
+      data: task
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this._snackBar.open('Task deleted successfully', 'Close', {
+          duration: 1000
+        });
+
+        this.ngOnInit();
+      }
     });
   }
 }
