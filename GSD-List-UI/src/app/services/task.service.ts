@@ -23,4 +23,12 @@ export class TaskService {
   public saveTask(task: Task): Observable<Task> {
     return this.http.post<Task>(`${environment.apiUrl}/${this.url}`, task);
   }
+
+  public updateTask(task: Task): Observable<Task> {
+    return this.http.put<Task>(`${environment.apiUrl}/${this.url}`, task);
+  }
+
+  public deleteTask(id: number): Observable<Task> {
+    return this.http.delete<Task>(`${environment.apiUrl}/${this.url}/${id}`);
+  }
 }

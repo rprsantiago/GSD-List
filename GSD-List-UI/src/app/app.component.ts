@@ -17,7 +17,7 @@ export class AppComponent {
 
   tasks: Task[] = [];
 
-  displayedColumns: string[] = ['taskName', 'taskDescription'];
+  displayedColumns: string[] = ['taskName', 'taskDescription', 'actions'];
 
   constructor(private taskService: TaskService,
     public dialog: MatDialog,
@@ -30,14 +30,13 @@ export class AppComponent {
       .subscribe((result: Task[]) => (this.tasks = result));
   }
 
-  openDialog() {
+  addNewTask() {
     const dialogRef = this.dialog.open(ModalAddTaskComponent, {
       width: '50%',
       height: '50%'
     });
 
     dialogRef.afterClosed().subscribe(result => {
-
       if (result) {
         this._snackBar.open('Task added successfully', 'Close', {
           duration: 1000
@@ -48,5 +47,31 @@ export class AppComponent {
     });
   }
 
+  editTask(task: any) {
+    const dialogRef = this.dialog.open(ModalAddTaskComponent, {
+      width: '50%',
+      height: '50%',
+      data: task
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this._snackBar.open('Task updated successfully', 'Close', {
+          duration: 1000
+        });
+
+        this.ngOnInit();
+      }
+    });
+  }
+
+  deleteTask(task: any) {
+    this.taskService.deleteTask(task.id).subscribe(() => {
+      this._snackBar.open('Task deleted successfully', 'Close', {
+        duration: 1000
+      });
+
+      this.ngOnInit();
+    });
+  }
 }

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, Input, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Task } from 'src/app/models/task';
 import { TaskService } from 'src/app/services/task.service';
@@ -10,28 +10,28 @@ import { TaskService } from 'src/app/services/task.service';
   styleUrls: ['./modal-add-task.component.css']
 })
 export class ModalAddTaskComponent {
+
   taskForm!: FormGroup;
+  isEditMode: boolean = false;
 
   constructor(
     private dialogRef: MatDialogRef<ModalAddTaskComponent>,
     private formBuilder: FormBuilder,
-    private taskService: TaskService
+    private taskService: TaskService,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
   ngOnInit(): void {
+    this.isEditMode = this.data ? true : false;
+
     this.taskForm = this.formBuilder.group({
+      id: [''],
       taskName: ['', Validators.required],
       taskDescription: ['', Validators.required]
     });
-  }
 
-  getErrorMessage(control: AbstractControl): string {
-    // if control has no error
-    if (!control.errors) {
-      return '';
-    }
-    else {
-      return 'This field is required';
+    if (this.isEditMode) {
+      this.taskForm.patchValue(this.data);
     }
   }
 
@@ -47,9 +47,17 @@ export class ModalAddTaskComponent {
         statusId: 1
       };
 
-      this.taskService.saveTask(task).subscribe(() => {
-        this.dialogRef.close(task);
-      });
+      if (this.isEditMode) {
+        task.id = this.data.id;
+        this.taskService.updateTask(task).subscribe(() => {
+          this.dialogRef.close(task);
+        });
+      }
+      else {
+        this.taskService.saveTask(task).subscribe(() => {
+          this.dialogRef.close(task);
+        });
+      }
     }
   }
 }
