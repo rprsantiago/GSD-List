@@ -1,3 +1,11 @@
-.content{
+.content {
     padding: 1rem;
+}
+
+mat-header-cell,
+mat-cell {
+    justify-content: center;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: lightgrey;
 }
