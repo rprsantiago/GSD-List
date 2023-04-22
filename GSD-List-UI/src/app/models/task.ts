@@ -4,9 +4,7 @@ export class Task{
     id?: number;
     taskName!: string;
     taskDescription!: string;
-    //test
-
-    //relate statusId to codetable
     statusId!: number;
-    //status!: codetable;
+    dateCreated?: Date;
+    dateUpdated?: Date;
 }

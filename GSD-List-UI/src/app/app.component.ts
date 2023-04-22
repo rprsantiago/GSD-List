@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { Task } from './models/task';
 import { TaskService } from './services/task.service';
+import { CodetableService } from './services/codetable.service';
 
 import { MatDialog } from '@angular/material/dialog';
 import { ModalAddTaskComponent } from './components/modals/modal-add-task/modal-add-task.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ModalConfirmationComponent } from './components/modals/confirmation-modal/modal-confirmation/modal-confirmation.component';
+import { codetable } from './models/codetable';
 
 
 @Component({
@@ -17,10 +19,12 @@ export class AppComponent {
   title = 'GSD-List.UI';
 
   tasks: Task[] = [];
+  statuses: codetable[] = [];
 
-  displayedColumns: string[] = ['taskName', 'taskDescription', 'actions'];
+  displayedColumns: string[] = ['taskName', 'taskDescription', 'statusDescription', 'actions'];
 
   constructor(private taskService: TaskService,
+    private codeTableService: CodetableService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar) { }
 
@@ -29,12 +33,20 @@ export class AppComponent {
     this.taskService
       .getTasks()
       .subscribe((result: Task[]) => (this.tasks = result));
+
+    this.codeTableService
+      .getStatuses()
+      .subscribe((result: codetable[]) => this.statuses = result);
   }
 
   addNewTask() {
     const dialogRef = this.dialog.open(ModalAddTaskComponent, {
       width: '50%',
-      height: '50%'
+      height: '55%',
+      data: {
+        taskData: null,
+        listStatus: this.statuses
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -51,8 +63,11 @@ export class AppComponent {
   editTask(task: any) {
     const dialogRef = this.dialog.open(ModalAddTaskComponent, {
       width: '50%',
-      height: '50%',
-      data: task
+      height: '55%',
+      data: {
+        taskData: task,
+        listStatus: this.statuses
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {

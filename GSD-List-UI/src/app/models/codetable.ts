@@ -1,5 +1,5 @@
 export class codetable{
     id?: number;
-    description!: string;
+    statusDescription!: string;
     active!: boolean;
 }
