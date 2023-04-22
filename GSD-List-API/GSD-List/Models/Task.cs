@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.InteropServices.JavaScript;
 
 namespace GSD_List.Models
 {
-    [Table("tasks")]
+    [Table("task")]
     public class Task
     {
         [Key]
@@ -16,7 +17,17 @@ namespace GSD_List.Models
         [Column("task_description")]
         public string TaskDescription { get; set; } = string.Empty;
 
-        [Column("active")]
-        public bool Active { get; set; }
+
+        [Column("date_created")]
+        public DateTime DateCreated { get; set; }
+
+        [Column("date_updated")]
+        public DateTime DateUpdated { get; set; }
+
+
+        [ForeignKey("status_id")]
+        [Column("status_id")]
+        public int StatusId { get; set; }
+
     }
 }

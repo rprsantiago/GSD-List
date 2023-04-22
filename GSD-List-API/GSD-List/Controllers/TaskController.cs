@@ -20,7 +20,22 @@ namespace GSD_List.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Models.Task>>> GetListTasks()
         {
-            return Ok(await _context.Tasks.ToListAsync());
+            var listStatus = await _context.Statuses.ToListAsync();
+            var listTasks = await _context.Tasks.ToListAsync();
+
+            //create new object from tasks and add status description property
+            var listTasksWithStatus = listTasks.Select(x => new
+            {
+                x.Id,
+                x.TaskName,
+                x.TaskDescription,
+                x.DateCreated,
+                x.DateUpdated,
+                x.StatusId,
+                StatusDescription = listStatus.Find(y => y.Id == x.StatusId).StatusDescription
+            }).ToList();
+
+            return Ok(listTasksWithStatus);
         }
 
         [HttpPost]
@@ -44,7 +59,10 @@ namespace GSD_List.Controllers
 
             dbTask.TaskName = task.TaskName;
             dbTask.TaskDescription = task.TaskDescription;
-            dbTask.Active = task.Active;
+            dbTask.DateCreated = task.DateCreated;
+            dbTask.DateUpdated = task.DateUpdated;
+            dbTask.StatusId = task.StatusId;
+            
 
             await _context.SaveChangesAsync();
 

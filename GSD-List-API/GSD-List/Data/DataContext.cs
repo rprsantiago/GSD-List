@@ -7,5 +7,6 @@ namespace GSD_List.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
         public DbSet<Models.Task> Tasks => Set<Models.Task>();
+        public DbSet<Status> Statuses => Set<Status>();
     }
 }
