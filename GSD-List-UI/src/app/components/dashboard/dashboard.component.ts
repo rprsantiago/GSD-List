@@ -46,7 +46,7 @@ export class DashboardComponent {
       text: 'Number of Tasks per Status'
     },
     xAxis: {
-      categories: ['test', 'test', 'test', 'test'],
+      categories: ['Not Yet Stared', 'Ongoing', 'Completed', 'Cancelled'],
     },
     yAxis: {
       min: 0,
@@ -56,7 +56,7 @@ export class DashboardComponent {
     },
     series: [{
       name: 'Tasks',
-      data: [5, 3, 4, 7]
+      data: [2, 1, 1, 1]
     }]
   }
 }
