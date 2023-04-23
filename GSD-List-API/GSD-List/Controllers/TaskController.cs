@@ -35,6 +35,8 @@ namespace GSD_List.Controllers
                 StatusDescription = listStatus.Find(y => y.Id == x.StatusId).StatusDescription
             }).ToList();
 
+            listTasksWithStatus.Sort((a, b) => a.StatusId.CompareTo(b.StatusId));
+
             return Ok(listTasksWithStatus);
         }
 
