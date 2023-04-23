@@ -7,6 +7,7 @@ import { CodetableService } from 'src/app/services/codetable.service';
 import { TaskService } from 'src/app/services/task.service';
 import { ModalConfirmationComponent } from '../modals/confirmation-modal/modal-confirmation/modal-confirmation.component';
 import { ModalAddTaskComponent } from '../modals/modal-add-task/modal-add-task.component';
+import {MatSort, Sort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-tasks',

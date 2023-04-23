@@ -19,6 +19,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
+import { MatSortModule } from '@angular/material/sort';
 
 
 import { HeaderComponent } from './components/shared/header/header.component';
@@ -60,7 +61,8 @@ import { HomeComponent } from './components/home/home.component';
     MatIconModule,
     MatSelectModule,
     MatChipsModule,
-    HighchartsChartModule 
+    HighchartsChartModule,
+    MatSortModule
   ],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' } }
