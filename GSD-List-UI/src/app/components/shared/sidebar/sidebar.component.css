@@ -3,9 +3,9 @@ aside {
     padding: 1rem;
     width: 200px;
     height: 100%;
-    position: fixed;
+    /* position: fixed;
     top: 40;
-    left: 0;
+    left: 0;  */
   }
   
   ul {

@@ -26,6 +26,10 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { SidebarComponent } from './components/shared/sidebar/sidebar.component';
 import { ModalAddTaskComponent } from './components/modals/modal-add-task/modal-add-task.component';
 import { ModalConfirmationComponent } from './components/modals/confirmation-modal/modal-confirmation/modal-confirmation.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { TasksComponent } from './components/tasks/tasks.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,10 @@ import { ModalConfirmationComponent } from './components/modals/confirmation-mod
     FooterComponent,
     SidebarComponent,
     ModalAddTaskComponent,
-    ModalConfirmationComponent
+    ModalConfirmationComponent,
+    DashboardComponent,
+    TasksComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +59,8 @@ import { ModalConfirmationComponent } from './components/modals/confirmation-mod
     MatSnackBarModule,
     MatIconModule,
     MatSelectModule,
-    MatChipsModule
+    MatChipsModule,
+    HighchartsChartModule 
   ],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' } }
