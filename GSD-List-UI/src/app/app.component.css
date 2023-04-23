@@ -1,30 +1,9 @@
+.container{
+    height: 80%;
+}
+
 .content {
     padding: 1rem;
+    width: 100%;
 }
 
-mat-header-cell,
-mat-cell {
-    justify-content: center;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: lightgrey;
-}
-
-button:disabled{
-    width: 200px;
-}
-
-.primary{
-    background: rgb(196, 196, 255) !important;
-    color: darkblue !important;
-}
-
-.success{
-    background: rgb(165, 255, 205) !important;
-    color: green !important;
-}
-
-.warning{
-    background: rgb(255, 133, 133) !important;
-    color: rgb(129, 0, 0) !important;
-}

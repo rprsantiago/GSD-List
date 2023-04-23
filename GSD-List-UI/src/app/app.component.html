@@ -1,59 +1,11 @@
 <app-header></app-header>
 
-<div class="container">
+<div fxLayout="row" fxLayoutGap="10px" class="container">
     <div class="sidebar">
-        <!-- <app-sidebar></app-sidebar> -->
+        <app-sidebar></app-sidebar>
     </div>
     <div class="content">
         <router-outlet></router-outlet>
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-            <span class="material-icons md-dark">face</span>
-            <button mat-raised-button color="primary" (click)="addNewTask()">Add Task</button>
-        </div>
-        <br>
-        <mat-table [dataSource]="tasks" class="mat-elevation-z8" matSort>
-
-            <ng-container matColumnDef="taskName">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Task Name </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.taskName}} </mat-cell>
-            </ng-container>
-
-            <ng-container matColumnDef="taskDescription">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Task Description </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.taskDescription}} </mat-cell>
-            </ng-container>
-
-            <ng-container matColumnDef="statusDescription">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
-                <mat-cell *matCellDef="let element">
-                    <button mat-flat-button disabled [ngClass]="{
-                    'neutral' : element.statusId == 1,
-                    'primary' : element.statusId == 2,
-                    'success' : element.statusId == 3,
-                    'warning' : element.statusId == 4
-                 }">
-                        {{element.statusDescription}}
-                    </button>
-                </mat-cell>
-            </ng-container>
-
-            <ng-container matColumnDef="actions">
-                <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
-                <mat-cell *matCellDef="let element">
-                    <button mat-icon-button matTooltip="Click to edit" class="iconbutton" color="primary"
-                        (click)="editTask(element)">
-                        <mat-icon>edit</mat-icon>
-                    </button>
-                    <button mat-icon-button matTooltip="Click to delete" class="iconbutton" color="warn"
-                        (click)="deleteTask(element)">
-                        <mat-icon>delete</mat-icon>
-                    </button>
-                </mat-cell>
-            </ng-container>
-
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-        </mat-table>
     </div>
 </div>
 
