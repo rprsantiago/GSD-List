@@ -13,6 +13,6 @@ export class CodetableService {
   constructor(private http: HttpClient) { }
 
   public getStatuses(): Observable<codetable[]> {
-    return this.http.get<codetable[]>(`${environment.apiUrl}/${this.url}`);
+    return this.http.get<any>(`${environment.apiUrl}/${this.url}`);
   }
 }

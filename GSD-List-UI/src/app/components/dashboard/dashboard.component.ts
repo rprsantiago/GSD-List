@@ -14,9 +14,11 @@ import { TaskService } from 'src/app/services/task.service';
 export class DashboardComponent {
 
   tasks: Task[] = [];
-  statuses: codetable[] = [];
+  statuses: any;
 
-  listStatus: any = [];
+  updateFlag = false;
+
+  listStatusDescription: any = [];
 
   constructor(private taskService: TaskService,
     private codeTableService: CodetableService) { }
@@ -25,7 +27,7 @@ export class DashboardComponent {
     this.Initialize();
   }
 
-  Initialize(){
+  Initialize() {
     //get tasks from the api
     this.taskService
       .getTasks()
@@ -33,7 +35,27 @@ export class DashboardComponent {
 
     this.codeTableService
       .getStatuses()
-      .subscribe((result: codetable[]) => this.statuses = result);
+      .subscribe(result => {
+        (this.statuses = result);
+
+        console.log(this.statuses);
+
+        this.statuses.forEach((element: codetable) => {
+          this.listStatusDescription.push(element.statusDescription);
+        }
+        );
+
+        this.handleUpdate();
+
+      });
+
+
+  }
+
+  handleUpdate() {
+    this.column.xAxis.categories = this.listStatusDescription;
+
+    this.updateFlag = true;
   }
 
   Highcharts = Highcharts;
@@ -46,7 +68,7 @@ export class DashboardComponent {
       text: 'Number of Tasks per Status'
     },
     xAxis: {
-      categories: ['Not Yet Stared', 'Ongoing', 'Completed', 'Cancelled'],
+      categories: this.listStatusDescription,
     },
     yAxis: {
       min: 0,
